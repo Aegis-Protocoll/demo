@@ -42,6 +42,29 @@ export async function analyzeWallet(wallet: string): Promise<AnalyzeResult> {
   return res.json()
 }
 
+export interface MockResult {
+  wallet: string
+  score: number
+  level: string
+  flags: string[]
+  reasoning: string
+  hopDistance: number
+  txHash: string
+  status: string
+}
+
+export async function mockWallet(
+  wallet: string, score: number, flags: string[], reasoning: string, hopDistance: number
+): Promise<MockResult> {
+  const res = await fetch(`${API_BASE}/v1/risk/mock`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ wallet, score, flags, reasoning, hopDistance }),
+  })
+  if (!res.ok) throw new Error(`API error: ${res.status}`)
+  return res.json()
+}
+
 export async function checkPayment(from: string, to: string, amount: string): Promise<PaymentResult> {
   const res = await fetch(`${API_BASE}/v1/risk/payment`, {
     method: "POST",
