@@ -27,6 +27,6 @@ export const SCORE_BG: Record<string, string> = {
   UNKNOWN: "bg-gray-500/10 border-gray-500/30",
 }
 
-export const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3000"
+export const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL || "https://aegis-protocol-api.vercel.app"
 export const EXPLORER_URL = process.env.NEXT_PUBLIC_EXPLORER_URL || "https://testnet-explorer.hsk.xyz"
-export const LANDING_URL = process.env.NEXT_PUBLIC_LANDING_URL || "http://localhost:3001"
+export const LANDING_URL = process.env.NEXT_PUBLIC_LANDING_URL || "https://aegis-protocol-landing.vercel.app"
